@@ -202,8 +202,8 @@
                                             <div class="btn-block d-flex">
                                                 <a href="cart?id=${p.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid"  >Thêm vào giỏ</a>
                                                 <div class="btn-options">
-                                                    <a href="wishlist.html"><i class="ion-ios-heart-outline"></i>Thêm vào DS Mong Muốn</a>
-                                                    <a href="compare.html"><i class="ion-ios-shuffle"></i>So sánh</a>
+                                                    <a href="#"><i class="ion-ios-heart-outline"></i>Thêm vào DS Mong Muốn</a>
+                                                    <a href="#"><i class="ion-ios-shuffle"></i>So sánh</a>
                                                 </div>
                                             </div>
                                         </div>
