@@ -177,8 +177,8 @@
                                     </a>
                                     <div class="hover-conents">
                                         <ul class="product-btns">
-                                            <li><a href="wishlist.html"  ><i class="ion-ios-heart-outline"></i></a></li>
-                                            <li><a href="compare.html"  ><i class="ion-ios-shuffle"></i></a></li>
+                                            <li><a href="#"  ><i class="ion-ios-heart-outline"></i></a></li>
+                                            <li><a href="#"  ><i class="ion-ios-shuffle"></i></a></li>
                                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#quickModal${p.id}"><i class="ion-ios-search"></i></a></li>
                                         </ul>
                                     </div>
