@@ -32,9 +32,10 @@ public class CartControl extends HttpServlet {
 
             }
             request.getRequestDispatcher("list-product").forward(request, response);
-
         }
+
         else {
+            new CartDAO().delectAllProductToCart();
             request.getRequestDispatcher("login.jsp").forward(request, response);
 
         }
