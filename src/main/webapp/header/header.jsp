@@ -94,7 +94,7 @@
                 </li>
                 <c:if test="${sessionScope.user.admin == 2}">
                   <li class="mainmenu__item ">
-                    <a href="admin-home" class="mainmenu__link">Trang Admin</a>
+                    <a href="admin-home" target="_blank" class="mainmenu__link">Trang Admin</a>
                   </li>
                 </c:if>
 
