@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="LTW" />
+        <module name="ltw22" />
       </profile>
     </annotationProcessing>
   </component>

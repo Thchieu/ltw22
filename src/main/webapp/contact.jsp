@@ -91,7 +91,7 @@
       <div class="ct-section-title-2 mb--60 text-center">
         <h2>GỬI YÊU CẦU ĐẾN PETMARK</h2>
       </div>
-      <form action="https://htmldemo.net/petmark/petmark/php/mail.php" class="site-form contact-form-2" id="contact-form">
+      <form action="" class="site-form contact-form-2" id="contact-form">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6">
             <div class="form-group">
