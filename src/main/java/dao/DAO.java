@@ -599,5 +599,29 @@ public class DAO {
         }
 
     }
+    public List<Product> getProductByPrice(double giadau, double giacuoi) {
+        List<Product> list = new ArrayList<>();
+        String query = "select * from sanpham where giagoc between ? and ?";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setDouble(1,giadau);
+            ps.setDouble(2, giacuoi);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDouble(5),
+                        rs.getDouble(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
 
 }
