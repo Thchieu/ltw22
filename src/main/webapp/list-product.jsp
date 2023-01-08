@@ -1,7 +1,7 @@
 <%@ page import="dao.DAO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.Product" %>
-<%@ page import="model.Price" %>
+<%@ page import="entity.Product" %>
+<%@ page import="entity.Price" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
