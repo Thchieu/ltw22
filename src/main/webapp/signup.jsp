@@ -25,14 +25,14 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="home">Trang chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Đăng kí</li>
+                <li class="breadcrumb-item active" aria-current="page">Đăng ký</li>
             </ol>
         </div>
     </nav>
 
     <div class="container">
         <header class="entry-header">
-            <h1 class="entry-title">Tạo Tài Khoản Mới</h1>
+
         </header>
         <div class="row">
             <form action="signup" method="post">
@@ -42,7 +42,7 @@
                 <div class="alert alert-danger ${mess2 == null ? "sr-only":""}" role="alert">
                     Tên đăng nhập đã tồn tại
                 </div>
-                <h4 class="login-title">Đăng kí</h4>
+                <h4 class="login-title" style="text-align: center">Đăng ký</h4>
                 <div class="login-form">
                     <div class="row">
                         <div class="col-md-12 col-12 mb--20">
@@ -73,8 +73,8 @@
                             <label>Số điện thoại*</label>
                             <input class="mb-0" type="text" name="phone" required>
                         </div>
-                        <div class="col-md-12">
-                            <button class="btn btn-black" type="submit">Dang Ki</button>
+                        <div class="col-md-12" style="text-align: center">
+                            <button class="btn btn-black" type="submit">Đăng ký</button>
                         </div>
                     </div>
                 </div>
