@@ -45,6 +45,7 @@
                 <a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i> Phương thức thanh toán</a>
                 <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> Địa chỉ thanh toán</a>
                 <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Cập nhật tài khoản</a>
+                <a href="changepass" ><i class="fa fa-key"></i> Đổi mật khẩu</a>
               </div>
             </div>
             <!-- My Account Tab Menu End -->
@@ -54,7 +55,7 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Bộ điều khiển</h3>
+                    <h3 style="text-align: center">Bộ điều khiển</h3>
                     <div class="welcome mb-20">
                       <p>Xin chào, <strong>${sessionScope.user.fullName}</strong>
                     </div>
@@ -66,7 +67,7 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade" id="orders" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Orders</h3>
+                    <h3 style="text-align: center">Orders</h3>
                     <div class="myaccount-table table-responsive text-center">
                       <table class="table table-bordered">
                         <thead class="thead-light">
@@ -89,7 +90,7 @@
                           <td>chưa giải quyết
                           </td>
                           <td>250.000 VNĐ</td>
-                          <td><a href="cart.html" class="btn">Xem sản phẩm</a></td>
+                          <td><a href="cart.jsp" class="btn">Xem sản phẩm</a></td>
                         </tr>
                         <tr>
                           <td>2</td>
@@ -98,7 +99,7 @@
                           <td>04/11/2022</td>
                           <td>Đã phê duyệt</td>
                           <td>99.000 VNĐ</td>
-                          <td><a href="cart.html" class="btn">Xem Sản phẩm</a></td>
+                          <td><a href="cart.jsp" class="btn">Xem Sản phẩm</a></td>
                         </tr>
                         <tr>
                           <td>3</td>
@@ -109,7 +110,7 @@
                           <td>21/05/2022</td>
                           <td>Đã Giao</td>
                           <td>330.000 VNĐ</td>
-                          <td><a href="cart.html" class="btn">Xem Sản phẩm</a></td>
+                          <td><a href="cart.jsp" class="btn">Xem Sản phẩm</a></td>
                         </tr>
                         </tbody>
                       </table>
@@ -121,7 +122,7 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade" id="payment-method" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Phương thức thanh toán</h3>
+                    <h3 style="text-align: center">Phương thức thanh toán</h3>
                     <p class="saved-message">Bạn chưa liên kết tài khoản ngân hàng.</p>
                   </div>
                 </div>
@@ -129,15 +130,19 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade" id="address-edit" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Địa chỉ nhận hàng</h3>
+                    <h3 style="text-align: center">Địa chỉ nhận hàng</h3>
                     <address>
                       <p><strong> Người nhận: </strong>${sessionScope.user.fullName}</p>
                       <p>
-                        <strong>Địa chỉ: </strong><br>
+                        <strong>Địa chỉ: </strong>
                         ${sessionScope.user.address}
                       </p>
                       <p>
+<<<<<<< HEAD
                         <strong>Số điện thoại: </strong><br>
+=======
+                        <strong> Số Điện Thoại: </strong>
+>>>>>>> e95c1438dfa001b7a395031fa965f8f685c911b4
                         ${sessionScope.user.phoneNum}
                       </p>
                     </address>
@@ -147,7 +152,7 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade" id="account-info" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Cập nhật Thông tin</h3>
+                    <h3 style="text-align: center">Cập nhật Thông tin</h3>
                     <div class="alert alert-success ${mess == null ? "sr-only":""}" role="alert">
                       Thay đổi thành công
                     </div>
@@ -171,17 +176,10 @@
                           <div class="col-12 mb-30">
                             <input id="address" placeholder="Địa chỉ" type="text" name="address" required>
                           </div>
-                          <div class="col-12">
+                          <div class="col-12" style="text-align: center">
                             <button class="btn btn-black" type="submit">Lưu Thay đổi</button>
                           </div>
-                          <h3>
-                            Đổi Mật Khẩu
-                          </h3>
-                            <strong>
-                              <a href="changepass">
-                                Nhấn vào đây để đổi mật khẩu
-                              </a>
-                            </strong>
+
                         </div>
                       </form>
                     </div>
