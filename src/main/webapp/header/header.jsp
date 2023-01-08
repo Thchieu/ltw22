@@ -1,5 +1,5 @@
 <%@ page import="dao.DAO" %>
-<%@ page import="model.Product" %>
+<%@ page import="entity.Product" %>
 <%@ page import="dao.CartDAO" %>
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
