@@ -1,3 +1,9 @@
+<%@ page import="dao.DAO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Product" %>
+<%@ page import="model.Price" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.NumberFormat" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -76,6 +82,7 @@
                     </div>
                     <div class="shop-product-wrap grid with-pagination row border grid-four-column  me-0 ms-0 g-0" id="contentP">
                         <c:forEach items="${listP}" var="p">
+
                             <div class="modal fade modal-quick-view" id="quickModal${p.id}" tabindex="-1" role="dialog" aria-labelledby="quickModal"
                                  aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -90,6 +97,7 @@
                                                         <!-- Zoomable IMage -->
                                                         <img id="zoom_03" src="${p.image}"
                                                              data-zoom-image="${p.image}" alt=""/>
+
                                                         <!-- Product Gallery with Slick Slider -->
                                                         <div id="product-view-gallery" class="elevate-gallery">
                                                             <!-- Slick Single -->
@@ -121,7 +129,7 @@
                                                             <h3>${p.name}</h3>
                                                         </div>
                                                         <!-- Price -->
-                                                        <p class="price"><span class="old-price"></span>${p.price} VND</p>
+                                                        <p class="price"><span class="old-price"></span>${n.price}  VND</p>
                                                         <!-- Rating Block -->
                                                         <div class="rating-block d-flex  mt--10 mb--15">
                                                             <p class="rating-text"><a href="#comment-form">Chi Tiết</a></p>
@@ -141,7 +149,7 @@
                                                                 <input type="number" class="form-control text-center" value="1">
                                                             </div>
                                                             <div class="btn-block">
-                                                                <a href="#" class="btn btn-rounded btn-outlined--primary">Thêm vào giỏ</a>
+                                                                <a href="cart?&id=${p.id}&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-rounded btn-outlined--primary">Thêm vào giỏ</a>
                                                             </div>
                                                         </form>
                                                         <!-- Sharing Block 2 -->
@@ -169,18 +177,19 @@
                                     </a>
                                     <div class="hover-conents">
                                         <ul class="product-btns">
-                                            <li><a href="#"  ><i class="ion-ios-heart-outline"></i></a></li>
-                                            <li><a href="#"  ><i class="ion-ios-shuffle"></i></a></li>
+                                            <li><a href=""  ><i class="ion-ios-heart-outline"></i></a></li>
+                                            <li><a href=""  ><i class="ion-ios-shuffle"></i></a></li>
                                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#quickModal${p.id}"><i class="ion-ios-search"></i></a></li>
                                         </ul>
                                     </div>
+
                                     <div class="content">
                                         <h3 class="font-weight-500"><a href="detail?pID=${p.id}">${p.name}</a></h3>
                                         <div class="price text-red">
                                             <span>${p.price} VND</span>
                                         </div>
                                         <div class="btn-block grid-btn">
-                                                <a href="#" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
+                                                <a href="cart?&id=${p.id}&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
                                         </div>
                                         <div class="card-list-content ">
                                             <div class="rating-widget mt--20">
@@ -191,10 +200,10 @@
                                                 <a href="#" class="single-rating"><i class="far fa-star"></i></a>
                                             </div>
                                             <div class="btn-block d-flex">
-                                                <a href="cart.html" class="btn btn-outlined btn-rounded btn-mid"  >Thêm vào giỏ</a>
+                                                <a href="cart?id=${p.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid"  >Thêm vào giỏ</a>
                                                 <div class="btn-options">
-                                                    <a href="#"><i class="ion-ios-heart-outline"></i>Thêm vào DS Mong Muốn</a>
-                                                    <a href="#"><i class="ion-ios-shuffle"></i>So sánh</a>
+                                                    <a href=""><i class="ion-ios-heart-outline"></i>Thêm vào DS Mong Muốn</a>
+                                                    <a href=""><i class="ion-ios-shuffle"></i>So sánh</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -234,71 +243,40 @@
                         </div>
                         <div class="single-sidebar">
                             <h2 class="sidebar-title">lỌC THEO GIÁ</h2>
-                            <div class="range-slider pt--10">
-                                <div class="pm-range-slider"></div>
+                            <div class="range-slider pt--10" style="padding-top: 0px !important;">
                                 <div class="slider-price">
-                                    <p>
-                                        <input type="text" id="amount" readonly>
-                                        <a href="#" class="btn btn--primary">Lọc</a>
+                                 <%
+                                     DAO dao = new DAO();
+                                     Price p1 = new Price(0,100000);
+                                     Price p2 = new Price(100000,1000000);
+                                     Price p3 = new Price(1000000,2000000);
+                                     List<Price> listPrice = new ArrayList<>();
+                                     listPrice.add(p1);
+                                     listPrice.add(p2);
+                                     listPrice.add(p3);
+                                     NumberFormat n = NumberFormat.getInstance();
+                                     n.setMinimumIntegerDigits(0);
+                                     double giadau = 0, giacuoi = 0;
+                                     List<Product> listP = dao.getProductByPrice(giadau, giacuoi);
+
+                                 %>
+                                    <ul class="sidebar-filter-list">
+                                        <%for(Price price :listPrice){%>
+                                            <li ><a href="FilterControl?giadau=<%=price.getGiadau()%>&giacuoi=<%=price.getGiacuoi()%>">TỪ <%=n.format(price.getGiadau())%> ĐẾN <%=n.format(price.getGiacuoi())%></a></li>
+                                        <%}%>
+                                    </ul>
+
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="single-sidebar">
-                            <h2 class="sidebar-title">lỌC THEO GIÁ</h2>
-                            <a href="product-details.html" class="sidebar-product pm-product product-type-list">
-                                <div class="image"  >
-                                    <img src="image/product/home-2/product-8.png" alt="">
-                                </div>
-                                <div class="content">
-                                    <h3>Alkin Fungikur</h3>
-                                    <div class="rating-widget">
-                                        <span class="single-rating"><i class="fas fa-star"></i></span>
-                                        <span class="single-rating"><i class="fas fa-star"></i></span>
-                                        <span class="single-rating"><i class="fas fa-star"></i></span>
-                                        <span class="single-rating"><i class="fas fa-star-half-alt"></i></span>
-                                        <span class="single-rating"><i class="far fa-star"></i></span>
-                                    </div>
-                                    <div class="price text-red">
-                                        <span class="old"></span>
-                                        <span>552</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="product-details.html" class="sidebar-product pm-product product-type-list">
-                                <div class="image" >
-                                    <img src="image/product/home-2/product-9.png" alt="">
-                                </div>
 
-                                <div class="content">
-                                    <h3>Alkin Otoklen</h3>
-                                    <div class="rating-widget">
-                                        <span class="single-rating"><i class="fas fa-star"></i></span>
-                                        <span class="single-rating"><i class="fas fa-star"></i></span>
-                                        <span class="single-rating"><i class="fas fa-star"></i></span>
-                                        <span class="single-rating"><i class="fas fa-star-half-alt"></i></span>
-                                        <span class="single-rating"><i class="far fa-star"></i></span>
-                                    </div>
-                                    <div class="price text-red">
-                                        <span class="old"></span>
-                                        <span>225</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
                         <div class="single-sidebar">
                             <h2 class="sidebar-title">TAGS</h2>
                             <ul class="sidebar-tag-list">
-                                <li><a href="#" >Thú cưng</a></li>
-                                <li><a href="#" >Chó</a></li>
-                                <li><a href="#" >Mèo</a></li>
-                                <li><a href="#">Gia cầm</a></li>
-                                <li><a href="#" >Gia súc</a></li>
-                                <li><a href="#" >Thuốc đặc trị</a></li>
-                                <li><a href="#" >Thuốc giảm đau</a></li>
-                                <li><a href="#" >Thuốc khử trùng</a></li>
-                                <li><a href="#" >Vacxin</a></li>
-                                <li><a href="#" >Thuốc khác</a></li>
+                                <c:forEach items="${listC}" var="c">
+                                    <li class="${tag == c.cID ? "active":""}"><a href="category?cid=${c.cID}">${c.cName}</a></li>
+                                </c:forEach>
                             </ul>
                         </div>
                     </div>
