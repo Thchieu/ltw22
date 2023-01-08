@@ -33,9 +33,7 @@
     =============================================-->
     <main class="page-section pb--10 pt--50">
         <div class="container">
-            <header class="entry-header">
-                <h1 class="entry-title">Trang đăng nhập</h1>
-            </header>
+
             <div class="row">
                 <div class="alert alert-danger ${mess == null ? "sr-only":""}" role="alert">
                     Sai tên đăng nhập hoặc mật khẩu
