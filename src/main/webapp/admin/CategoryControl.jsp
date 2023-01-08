@@ -1,4 +1,4 @@
-<%@ page import="model.Category" %>
+<%@ page import="entity.Category" %>
 <%@ page import="dao.DAO" %><%--
   Created by IntelliJ IDEA.
   User: acer
