@@ -1,6 +1,6 @@
 <%@ page import="dao.DAO" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Product" %>
+<%@ page import="entity.Product" %>
 <%@ page import="dao.CartDAO" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
