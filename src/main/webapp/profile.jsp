@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="css/plugins.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Petmark ❤️</title>
 </head>
 <body class="">
@@ -43,6 +45,7 @@
                 <a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i> Phương thức thanh toán</a>
                 <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> Địa chỉ thanh toán</a>
                 <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Cập nhật tài khoản</a>
+                <a href="changepass" ><i class="fa fa-key"></i> Đổi mật khẩu</a>
               </div>
             </div>
             <!-- My Account Tab Menu End -->
@@ -52,7 +55,7 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Bộ điều khiển</h3>
+                    <h3 style="text-align: center">Bộ điều khiển</h3>
                     <div class="welcome mb-20">
                       <p>Xin chào, <strong>${sessionScope.user.fullName}</strong>
                     </div>
@@ -64,7 +67,7 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade" id="orders" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Orders</h3>
+                    <h3 style="text-align: center">Orders</h3>
                     <div class="myaccount-table table-responsive text-center">
                       <table class="table table-bordered">
                         <thead class="thead-light">
@@ -87,7 +90,7 @@
                           <td>chưa giải quyết
                           </td>
                           <td>250.000 VNĐ</td>
-                          <td><a href="cart.html" class="btn">Xem sản phẩm</a></td>
+                          <td><a href="cart.jsp" class="btn">Xem sản phẩm</a></td>
                         </tr>
                         <tr>
                           <td>2</td>
@@ -96,7 +99,7 @@
                           <td>04/11/2022</td>
                           <td>Đã phê duyệt</td>
                           <td>99.000 VNĐ</td>
-                          <td><a href="cart.html" class="btn">Xem Sản phẩm</a></td>
+                          <td><a href="cart.jsp" class="btn">Xem Sản phẩm</a></td>
                         </tr>
                         <tr>
                           <td>3</td>
@@ -107,7 +110,7 @@
                           <td>21/05/2022</td>
                           <td>Đã Giao</td>
                           <td>330.000 VNĐ</td>
-                          <td><a href="cart.html" class="btn">Xem Sản phẩm</a></td>
+                          <td><a href="cart.jsp" class="btn">Xem Sản phẩm</a></td>
                         </tr>
                         </tbody>
                       </table>
@@ -119,7 +122,7 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade" id="payment-method" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Phương thức thanh toán</h3>
+                    <h3 style="text-align: center">Phương thức thanh toán</h3>
                     <p class="saved-message">Bạn chưa liên kết tài khoản ngân hàng.</p>
                   </div>
                 </div>
@@ -127,12 +130,16 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade" id="address-edit" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Địa chỉ nhận hàng</h3>
+                    <h3 style="text-align: center">Địa chỉ nhận hàng</h3>
                     <address>
                       <p><strong> Người nhận: </strong>${sessionScope.user.fullName}</p>
                       <p>
-                        <strong>Địa chỉ: </strong><br>
+                        <strong>Địa chỉ: </strong>
                         ${sessionScope.user.address}
+                      </p>
+                      <p>
+                        <strong> Số Điện Thoại: </strong>
+                        ${sessionScope.user.phoneNum}
                       </p>
                     </address>
                   </div>
@@ -141,12 +148,12 @@
                 <!-- Single Tab Content Start -->
                 <div class="tab-pane fade" id="account-info" role="tabpanel">
                   <div class="myaccount-content">
-                    <h3>Cập nhật Thông tin</h3>
+                    <h3 style="text-align: center">Cập nhật Thông tin</h3>
                     <div class="alert alert-success ${mess == null ? "sr-only":""}" role="alert">
                       Thay đổi thành công
                     </div>
                     <div class="account-details-form">
-                      <form action="#" method="post">
+                      <form action="#" method="post" id="myForm">
                         <div class="row">
                           <div class="col-12 mb-30">
                             <input id="first-name" placeholder="Họ và Tên" type="text" name="fullname" required>
@@ -156,24 +163,19 @@
                           </div>
                           <div class="col-12 mb-30">
                             <input id="email" placeholder="Địa chỉ Email" type="email" name="email" required>
+                            <p id="error_email" style="color: red;"></p>
                           </div>
                           <div class="col-12 mb-30">
                             <input id="phone" placeholder="Số điện thoại" type="text" name="phone" required>
+                            <p id="error_phone" style="color: red;"></p>
                           </div>
                           <div class="col-12 mb-30">
                             <input id="address" placeholder="Địa chỉ" type="text" name="address" required>
                           </div>
-                          <div class="col-12">
+                          <div class="col-12" style="text-align: center">
                             <button class="btn btn-black" type="submit">Lưu Thay đổi</button>
                           </div>
-                          <h3>
-                            Đổi Mật Khẩu
-                          </h3>
-                            <strong>
-                              <a href="changepass">
-                                Nhấn vào đây để đổi mật khẩu
-                              </a>
-                            </strong>
+
                         </div>
                       </form>
                     </div>
@@ -190,6 +192,41 @@
   </div>
 </div>
 <jsp:include page="footer/footer.jsp"></jsp:include>
+<script>
+  $(document).ready(function() {
+    function validatePhone(txtPhone) {
+      var filter = /^[0-9-+]+$/;
+      if (filter.test(txtPhone + "") && txtPhone.length >= 10 && txtPhone.length < 12) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    function validateEmail(sEmail) {
+      var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+      if (filter.test(sEmail)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    $('#myForm').bind({
+      'submit': function() {
+        if (!validateEmail($('#email').val())) {
+          $('#error_email').html('Email bạn nhập không phù hợp!!!');
+          return false;
+        }
+
+        if (!validatePhone($('#phone').val())) {
+          $('#error_phone').html('Số điện thoại bạn nhập vào không phù hợp!!!');
+          return false;
+        }
+
+        return true;
+      }
+    });
+  });
+</script>
 <script src="js/plugins.js"></script>
 <script src="js/ajax-mail.js"></script>
 <script src="js/custom.js"></script>
