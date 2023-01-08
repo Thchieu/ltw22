@@ -1,9 +1,9 @@
 package dao;
 
 import connect.DBConnect;
-import model.Category;
-import model.Product;
-import model.User;
+import entity.Category;
+import entity.Product;
+import entity.User;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
