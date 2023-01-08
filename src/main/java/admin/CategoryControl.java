@@ -1,8 +1,8 @@
 package admin;
 
 import dao.DAO;
-import model.Category;
-import model.User;
+import entity.Category;
+import entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
