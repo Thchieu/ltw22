@@ -623,5 +623,44 @@ public class DAO {
         }
         return list;
     }
+public void insertCategory( String cName){
+        String query ="INSERT INTO `loaisp` (  `tenloai`) " +
+                "VALUES(?)";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, cName);
 
+            ps.executeUpdate();
+        } catch (Exception e){
+        }
+    }
+    public void deleteCategory(String cID ) {
+        String query = "delete from loaisp where id = ?";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, cID);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+
+
+    }
+    public boolean updateCategory(String id, String name){
+        String query = "update loaisp set tenloai = ?,\n" +
+
+                "WHERE id = ?";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            ps.setString(2, name);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+
+        }
+        return false;
+    }
 }
