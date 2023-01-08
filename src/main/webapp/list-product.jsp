@@ -1,9 +1,10 @@
 <%@ page import="dao.DAO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.Product" %>
-<%@ page import="model.Price" %>
+<%@ page import="entity.Product" %>
+<%@ page import="entity.Price" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.text.NumberFormat" %>
+<%@ page import="dao.CartDAO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -82,7 +83,6 @@
                     </div>
                     <div class="shop-product-wrap grid with-pagination row border grid-four-column  me-0 ms-0 g-0" id="contentP">
                         <c:forEach items="${listP}" var="p">
-
                             <div class="modal fade modal-quick-view" id="quickModal${p.id}" tabindex="-1" role="dialog" aria-labelledby="quickModal"
                                  aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -177,8 +177,8 @@
                                     </a>
                                     <div class="hover-conents">
                                         <ul class="product-btns">
-                                            <li><a href="#"  ><i class="ion-ios-heart-outline"></i></a></li>
-                                            <li><a href="#"  ><i class="ion-ios-shuffle"></i></a></li>
+                                            <li><a href=""  ><i class="ion-ios-heart-outline"></i></a></li>
+                                            <li><a href=""  ><i class="ion-ios-shuffle"></i></a></li>
                                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#quickModal${p.id}"><i class="ion-ios-search"></i></a></li>
                                         </ul>
                                     </div>
@@ -202,8 +202,8 @@
                                             <div class="btn-block d-flex">
                                                 <a href="cart?id=${p.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid"  >Thêm vào giỏ</a>
                                                 <div class="btn-options">
-                                                    <a href="#"><i class="ion-ios-heart-outline"></i>Thêm vào DS Mong Muốn</a>
-                                                    <a href="#"><i class="ion-ios-shuffle"></i>So sánh</a>
+                                                    <a href=""><i class="ion-ios-heart-outline"></i>Thêm vào DS Mong Muốn</a>
+                                                    <a href=""><i class="ion-ios-shuffle"></i>So sánh</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -258,7 +258,6 @@
                                      n.setMinimumIntegerDigits(0);
                                      double giadau = 0, giacuoi = 0;
                                      List<Product> listP = dao.getProductByPrice(giadau, giacuoi);
-
                                  %>
                                     <ul class="sidebar-filter-list">
                                         <%for(Price price :listPrice){%>
