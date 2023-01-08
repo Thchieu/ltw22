@@ -111,7 +111,7 @@ for (Product p : list){
                         </nav>
                     </div>
                     <!-- Cart block-->
-                    <c:if test="${sessionScope.user.admin == 2}">
+                    <c:if test="${sessionScope.user != null}">
                     <div class="col-lg-2 col-6 offset-6 offset-md-0 col-md-3 order-3" style="margin-left: 25%">
                         <div class="cart-widget-wrapper slide-down-wrapper">
                             <div class="cart-widget slide-down--btn">
