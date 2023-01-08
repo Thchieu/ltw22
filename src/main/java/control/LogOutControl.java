@@ -1,5 +1,7 @@
 package control;
 
+import dao.CartDAO;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -12,6 +14,7 @@ public class LogOutControl extends HttpServlet {
         HttpSession session = request.getSession();
         session.removeAttribute("user");
         response.sendRedirect("login");
+new CartDAO().delectAllProductToCart();
     }
 
     @Override
