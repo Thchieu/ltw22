@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="css/plugins.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Petmark ❤️</title>
 </head>
 <body class="">
@@ -134,6 +136,10 @@
                         <strong>Địa chỉ: </strong><br>
                         ${sessionScope.user.address}
                       </p>
+                      <p>
+                        <strong>Số điện thoại: </strong><br>
+                        ${sessionScope.user.phoneNum}
+                      </p>
                     </address>
                   </div>
                 </div>
@@ -146,7 +152,7 @@
                       Thay đổi thành công
                     </div>
                     <div class="account-details-form">
-                      <form action="#" method="post">
+                      <form action="#" method="post" id="myForm">
                         <div class="row">
                           <div class="col-12 mb-30">
                             <input id="first-name" placeholder="Họ và Tên" type="text" name="fullname" required>
@@ -156,9 +162,11 @@
                           </div>
                           <div class="col-12 mb-30">
                             <input id="email" placeholder="Địa chỉ Email" type="email" name="email" required>
+                            <p id="error_email" style="color: red;"></p>
                           </div>
                           <div class="col-12 mb-30">
                             <input id="phone" placeholder="Số điện thoại" type="text" name="phone" required>
+                            <p id="error_phone" style="color: red;"></p>
                           </div>
                           <div class="col-12 mb-30">
                             <input id="address" placeholder="Địa chỉ" type="text" name="address" required>
@@ -190,6 +198,41 @@
   </div>
 </div>
 <jsp:include page="footer/footer.jsp"></jsp:include>
+<script>
+  $(document).ready(function() {
+    function validatePhone(txtPhone) {
+      var filter = /^[0-9-+]+$/;
+      if (filter.test(txtPhone + "") && txtPhone.length >= 10 && txtPhone.length < 12) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    function validateEmail(sEmail) {
+      var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+      if (filter.test(sEmail)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    $('#myForm').bind({
+      'submit': function() {
+        if (!validateEmail($('#email').val())) {
+          $('#error_email').html('Email bạn nhập không phù hợp!!!');
+          return false;
+        }
+
+        if (!validatePhone($('#phone').val())) {
+          $('#error_phone').html('Số điện thoại bạn nhập vào không phù hợp!!!');
+          return false;
+        }
+
+        return true;
+      }
+    });
+  });
+</script>
 <script src="js/plugins.js"></script>
 <script src="js/ajax-mail.js"></script>
 <script src="js/custom.js"></script>
