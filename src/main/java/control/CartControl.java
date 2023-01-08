@@ -2,7 +2,7 @@ package control;
 
 import dao.CartDAO;
 import dao.DAO;
-import model.User;
+import entity.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
