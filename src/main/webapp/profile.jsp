@@ -138,11 +138,7 @@
                         ${sessionScope.user.address}
                       </p>
                       <p>
-<<<<<<< HEAD
-                        <strong>Số điện thoại: </strong><br>
-=======
                         <strong> Số Điện Thoại: </strong>
->>>>>>> e95c1438dfa001b7a395031fa965f8f685c911b4
                         ${sessionScope.user.phoneNum}
                       </p>
                     </address>
@@ -179,7 +175,6 @@
                           <div class="col-12" style="text-align: center">
                             <button class="btn btn-black" type="submit">Lưu Thay đổi</button>
                           </div>
-
                         </div>
                       </form>
                     </div>
