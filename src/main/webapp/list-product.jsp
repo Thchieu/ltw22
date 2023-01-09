@@ -54,22 +54,7 @@
                                 <div class="sorting-selection">
                                     <div class="row align-items-center ps-md-0 pe-md-0 g-0">
                                         <div class="col-sm-6 col-md-7 col-xl-8 d-flex align-items-center justify-content-md-end">
-                                            <span>Sắp xếp theo:</span>
-                                            <select id="input-sort" class="form-control nice-select sort-select" style="display: none;">
-                                                <option value="" selected="selected">Mặc định</option>
-                                                <option value="">
-                                                    Tên (A - Z)</option>
-                                                <option value="">
-                                                    Tên (Z - A)</option>
-                                                <option value="">
-                                                    Giá (Thấp &gt; Cao)</option>
-                                                <option value="">
-                                                    Giá (Cao &gt; Thấp)</option>
-                                                <option value="">
-                                                    Đánh giá (Cao nhất)</option>
-                                                <option value="">
-                                                    Đánh giá (Thấp nhất)</option>
-                                            </select>
+
                                         </div>
                                         <div class="col-md-5 col-xl-4 col-sm-6 text-sm-end mt-sm-0 mt-3">
                                             <span>
@@ -149,7 +134,7 @@
                                                                 <input type="number" class="form-control text-center" value="1">
                                                             </div>
                                                             <div class="btn-block">
-                                                                <a href="cart?&id=${p.id}&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-rounded btn-outlined--primary">Thêm vào giỏ</a>
+                                                                <a href="cart?&id=${p.id}" class="btn btn-rounded btn-outlined--primary">Thêm vào giỏ</a>
                                                             </div>
                                                         </form>
                                                         <!-- Sharing Block 2 -->
@@ -189,7 +174,7 @@
                                             <span>${p.price} VND</span>
                                         </div>
                                         <div class="btn-block grid-btn">
-                                                <a href="cart?&id=${p.id}&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
+                                                <a href="cart?&id=${p.id}" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
                                         </div>
                                         <div class="card-list-content ">
                                             <div class="rating-widget mt--20">
@@ -200,7 +185,7 @@
                                                 <a href="#" class="single-rating"><i class="far fa-star"></i></a>
                                             </div>
                                             <div class="btn-block d-flex">
-                                                <a href="cart?id=${p.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid"  >Thêm vào giỏ</a>
+                                                <a href="cart?id=${p.id}" class="btn btn-outlined btn-rounded btn-mid"  >Thêm vào giỏ</a>
                                                 <div class="btn-options">
                                                     <a href=""><i class="ion-ios-heart-outline"></i>Thêm vào DS Mong Muốn</a>
                                                     <a href=""><i class="ion-ios-shuffle"></i>So sánh</a>
@@ -250,10 +235,13 @@
                                      Price p1 = new Price(0,100000);
                                      Price p2 = new Price(100000,1000000);
                                      Price p3 = new Price(1000000,2000000);
+                                     Price p4 = new Price(2000000,5000000);
                                      List<Price> listPrice = new ArrayList<>();
                                      listPrice.add(p1);
                                      listPrice.add(p2);
                                      listPrice.add(p3);
+                                     listPrice.add(p4);
+
                                      NumberFormat n = NumberFormat.getInstance();
                                      n.setMinimumIntegerDigits(0);
                                      double giadau = 0, giacuoi = 0;
@@ -261,8 +249,26 @@
                                  %>
                                     <ul class="sidebar-filter-list">
                                         <%for(Price price :listPrice){%>
-                                            <li ><a href="FilterControl?giadau=<%=price.getGiadau()%>&giacuoi=<%=price.getGiacuoi()%>">TỪ <%=n.format(price.getGiadau())%> ĐẾN <%=n.format(price.getGiacuoi())%></a></li>
+                                            <li ><a href="FilterControl?giadau=<%=price.getGiadau()%>&giacuoi=<%=price.getGiacuoi()%>" style="font-size: 14px;"><%=n.format(price.getGiadau())%> VND - <%=n.format(price.getGiacuoi()) %>VND</a></li>
                                         <%}%>
+                                    </ul>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-sidebar">
+                            <h2 class="sidebar-title">SẮP XẾP THEO</h2>
+                            <div class="range-slider pt--10" style="padding-top: 0px !important;">
+                                <div class="slider-price">
+
+                                    <ul class="sidebar-filter-list">
+
+                                        <li ><a href="SortAToZ?" style="font-size: 14px;">Tên A-Z</a></li>
+                                        <li ><a href="SortZToA?" style="font-size: 14px;">Tên Z-A</a></li>
+                                        <li ><a href="SortPriceMinToMax?" style="font-size: 14px;">Giá (Thấp đến Cao) </a></li>
+                                        <li ><a href="SortPriceMaxToMin?" style="font-size: 14px;">Giá (Cao đến Thấp)</a></li>
+
                                     </ul>
 
                                     </p>
