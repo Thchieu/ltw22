@@ -1,6 +1,6 @@
 <%@ page import="dao.DAO" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Product" %>
+<%@ page import="entity.Product" %>
 <%@ page import="dao.CartDAO" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -68,7 +68,7 @@
 												<td class="pro-quantity">
 													<div class="pro-qty">
 														<div class="count-input-block">
-															<input type="number" class="form-control text-center" value="<%= count%>">
+															<input type="text" class="form-control text-center" value="<%= count%>">
 														</div>
 													</div>
 												</td>
@@ -120,148 +120,37 @@
 								{"breakpoint":991, "settings": {"slidesToShow": 2} },
 								{"breakpoint":768, "settings": {"slidesToShow": 1} }
 								]'>
+								<%for (Product p : dao.getAllProduct()){
+									if(p.getCateID().equals("3")){
+								%>
 								<div class="single-slide">
                                             <div class="pm-product">
                                                 <div class="image">
                                                     <a href="product-details.html"><img
-                                                    src="image/product/home-2/product-2.png" alt=""></a>
+                                                    src="<%=p.getImage()%>" alt=""></a>
                                                     <span class="onsale-badge">Sale!</span>
                                                 </div>
                                                 <div class="content">
-                                                    <h3> <a href="product-details.html"> Naturvet Vitapet </a></h3>
+                                                    <h3> <a href="product-details.html"> <%=p.getName()%></a></h3>
                                                     <div class="price text-orange">
-                                                        <span class="old">420 VND</span>
-                                                        <span>328 VND</span>
-                                                    </div>
-                                                    <div class="btn-block">
-                                                        <a href="cart.jsp" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-								<div class="single-slide">
-                                            <div class="pm-product">
-                                                <div class="image">
-                                                    <a href="product-details.html"><img
-                                                    src="image/product/home-2/product-9.png" alt=""></a>
-                                                    <span class="onsale-badge">Sale!</span>
-                                                </div>
-                                                <div class="content">
-                                                    <h3> <a href="product-details.html"> Alkin Otoklen </a></h3>
-                                                    <div class="price text-orange">
-                                                        
-                                                        <span>225 VND</span>
-                                                    </div>
-                                                    <div class="btn-block">
-                                                        <a href="cart.jsp" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-								<div class="single-slide">
-                                            <div class="pm-product">
-                                                <div class="image">
-                                                    <a href="product-details.html"><img
-                                                    src="image/product/home-2/product-11.png" alt=""></a>
-                                                    <span class="onsale-badge">Sale!</span>
-                                                </div>
-                                                <div class="content">
-                                                    <h3> <a href="product-details.html"> NexGard  </a></h3>
-                                                    <div class="price text-orange">
-                                                        <span>375 VND</span>
-                                        
-                                                    </div>
-                                                    <div class="btn-block">
-                                                        <a href="cart.jsp" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-								<div class="single-slide">
-                                            <div class="pm-product">
-                                                <div class="image">
-                                                    <a href="product-details.html"><img
-                                                    src="image/product/home-2/product-10.png" alt=""></a>
-                                                    <span class="onsale-badge">Sale!</span>
-                                                </div>
-                                                <div class="content">
-                                                    <h3> <a href="product-details.html"> Bayer Drontal Cat </a></h3>
-                                                    <div class="price text-orange">
-                                                        <span class="old">500 VND</span>
-                                                        <span>320 VND</span>
-                                                    </div>
-                                                    <div class="btn-block">
-                                                        <a href="cart.jsp" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-								<div class="single-slide">
-                                            <div class="pm-product">
-                                                <div class="image">
-                                                    <a href="product-details.html"><img
-                                                    src="image/product/home-2/product-1.png" alt=""></a>
-                                                    <span class="onsale-badge">Sale!</span>
-                                                </div>
-                                                <div class="content">
-                                                    <h3> <a href="product-details.html"> Deramaxx </a></h3>
-                                                    <div class="price text-orange">
-                                                    
-                                                        <span>500 VND</span>
-                                                    </div>
-                                                    <div class="btn-block">
-                                                        <a href="cart.jsp" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-								 <div class="single-slide">
-                                            <div class="pm-product">
-                                                <div class="image">
-                                                    <a href="product-details.html"><img
-                                                    src="image/product/home-2/product-7.png" alt=""></a>
-                                                    <span class="onsale-badge">Sale!</span>
-                                                </div>
-                                                <div class="content">
-                                                    <h3> <a href="product-details.html"> BROMHEXINE 100ML </a></h3>
-                                                    <div class="price text-orange">
-                                                        
-                                                        <span>300 VND</span>
-                                                    </div>
-                                                    <div class="btn-block">
-                                                        <a href="cart.jsp" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                        <span class=""><%=p.getPrice()%> VND</span>
 
-										<div class="single-slide">
-                                            <div class="pm-product">
-                                                <div class="image">
-                                                    <a href="product-details.html"><img
-                                                    src="image/product/home-2/product-6.png" alt=""></a>
-                                                    <span class="onsale-badge">Sale!</span>
-                                                </div>
-                                                <div class="content">
-                                                    <h3> <a href="product-details.html"> Merial Frontline Spray Treatment </a></h3>
-                                                    <div class="price text-orange">
-                                                        <span class="old">280 VND</span>
-                                                        <span>120 VND</span>
                                                     </div>
                                                     <div class="btn-block">
-                                                        <a href="cart.jsp" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
+														<a href="cart-cart?&id=<%=p.getId()%>&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-									</div>
+								<%}}%>
+							</div>
 								</div>
 						<!-- Cart Summary -->
 						<div class="col-lg-6 col-12 d-flex">
 							<div class="cart-summary">
 								<div class="cart-summary-wrap">
 									<h4><span>Tóm tắt</span></h4>
-									<p>ma hoa don <span class="text-primary"><%=System.currentTimeMillis()%> </span></p>
+									<p>Mã hóa đơn <span class="text-primary"><%=System.currentTimeMillis()%> </span></p>
 									<p>Tổng phụ <span class="text-primary"><%=total%> VND</span></p>
 									<p>Phí vận chuyển <span class="text-primary"><% int total1=0;if( total >0){total1 =35000;}else {total1=0;}%><%=total1%></span></p>
 									<h2>Tổng tiền <span class="text-primary"><%=total + total1%> VND</span></h2>
