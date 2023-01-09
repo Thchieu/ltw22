@@ -1,6 +1,6 @@
 package control;
 
-import model.User;
+import entity.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
