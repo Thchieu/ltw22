@@ -1,8 +1,8 @@
 package control;
 
 import dao.DAO;
-import model.Category;
-import model.Product;
+import entity.Category;
+import entity.Product;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
