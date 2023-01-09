@@ -149,7 +149,7 @@
                                                                 <input type="number" class="form-control text-center" value="1">
                                                             </div>
                                                             <div class="btn-block">
-                                                                <a href="cart?&id=${p.id}&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-rounded btn-outlined--primary">Thêm vào giỏ</a>
+                                                                <a href="cart?&id=${p.id}" class="btn btn-rounded btn-outlined--primary">Thêm vào giỏ</a>
                                                             </div>
                                                         </form>
                                                         <!-- Sharing Block 2 -->
@@ -189,7 +189,7 @@
                                             <span>${p.price} VND</span>
                                         </div>
                                         <div class="btn-block grid-btn">
-                                                <a href="cart?&id=${p.id}&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
+                                                <a href="cart?&id=${p.id}" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
                                         </div>
                                         <div class="card-list-content ">
                                             <div class="rating-widget mt--20">
@@ -200,7 +200,7 @@
                                                 <a href="#" class="single-rating"><i class="far fa-star"></i></a>
                                             </div>
                                             <div class="btn-block d-flex">
-                                                <a href="cart?id=${p.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid"  >Thêm vào giỏ</a>
+                                                <a href="cart?id=${p.id}" class="btn btn-outlined btn-rounded btn-mid"  >Thêm vào giỏ</a>
                                                 <div class="btn-options">
                                                     <a href=""><i class="ion-ios-heart-outline"></i>Thêm vào DS Mong Muốn</a>
                                                     <a href=""><i class="ion-ios-shuffle"></i>So sánh</a>
