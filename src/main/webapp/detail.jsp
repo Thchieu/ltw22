@@ -94,15 +94,15 @@
                 <i class="fas fa-check-circle"></i>300 trong kho
               </div>
               <!-- Amount and Add to cart -->
-              <form action="#" class="add-to-cart">
-                <div class="count-input-block">
-                  <input type="number" class="form-control text-center" name="f" value="1">
-                </div>
-                <div class="btn-block">
 
-                  <a href="cart?id=${p.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
+                <div class="count-input-block">
+                  <input type="text" class="form-control text-center" name="f" value="1">
                 </div>
-              </form>
+                <div class="btn-block grid-btn" style="margin-left: 19%;margin-top: -39px;margin-bottom: 5%;">
+
+                  <a href="cart?id=${detail.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-rounded btn-outlined--primary" style="width: 164px;height: 40px;">Thêm vào giỏ</a>
+                </div>
+
               <!-- Wishlist  -->
               <div class="btn-options">
                 <a href="wishlist.html"><i class="ion-ios-heart-outline"></i>Thêm vào danh sách mong muốn</a>
