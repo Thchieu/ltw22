@@ -266,7 +266,7 @@
                         <span>${p.price} VND</span>
                       </div>
                       <div class="btn-block">
-                        <a href="cart?id=${p.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
+                        <a href="cart?id=${p.id}" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
                       </div>
                     </div>
                   </div>
