@@ -98,7 +98,7 @@ for (Product p : list){
                                     <a href="cart.jsp" class="mainmenu__link">Giỏ hàng</a>
                                 </li>
                                 <li class="mainmenu__item ">
-                                    <a href="blog-list-left-sidebar.jsp" class="mainmenu__link">Tin tức</a>
+                                    <a href="blog" class="mainmenu__link">Tin tức</a>
                                 </li>
                                 <c:if test="${sessionScope.user.admin == 2}">
                                     <li class="mainmenu__item ">
