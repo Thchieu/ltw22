@@ -89,10 +89,10 @@ for (Product p : list){
                                     <a href="list-product" class="mainmenu__link"> Sản phẩm</a>
                                 </li>
                                 <li class="mainmenu__item ">
-                                    <a href="faq.html" class="mainmenu__link">Giải đáp</a>
+                                    <a href="FAQ" class="mainmenu__link">Giải đáp</a>
                                 </li>
                                 <li class="mainmenu__item ">
-                                    <a href="contact.html" class="mainmenu__link">Liên hệ</a>
+                                    <a href="contact" class="mainmenu__link">Liên hệ</a>
                                 </li>
                                 <li class="mainmenu__item ">
                                     <a href="cart.jsp" class="mainmenu__link">Giỏ hàng</a>
