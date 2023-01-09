@@ -177,7 +177,8 @@
                                                     <span>${t.price} VND</span>
                                                 </div>
                                                 <div class="btn-block">
-                                                    <a href="cart.html" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
+                                                    <a href="cart-home?&id=${t.id}&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -289,7 +290,7 @@
                                 <span>${t.price} VND</span>
                             </div>
                             <div class="btn-block">
-                                <a href="cart.html" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
+                                <a href="cart-home?&id=${t.id}&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
                             </div>
                         </div>
                     </div>
@@ -335,6 +336,9 @@
                             <h3> <a href="product-details.html">${p.name}</a></h3>
                             <div class="price text-orange">
                                 <span>${p.price} VND</span>
+                            </div>
+                            <div class="btn-block">
+                                <a href="cart-home?&id=${p.id}&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
                             </div>
                             <div class="rating-widget mt--20">
                                 <a href="#" class="single-rating"><i class="fas fa-star"></i></a>
