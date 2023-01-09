@@ -4,6 +4,7 @@
 <%@ page import="entity.Price" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.text.NumberFormat" %>
+<%@ page import="dao.CartDAO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -82,7 +83,6 @@
                     </div>
                     <div class="shop-product-wrap grid with-pagination row border grid-four-column  me-0 ms-0 g-0" id="contentP">
                         <c:forEach items="${listP}" var="p">
-
                             <div class="modal fade modal-quick-view" id="quickModal${p.id}" tabindex="-1" role="dialog" aria-labelledby="quickModal"
                                  aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -250,19 +250,21 @@
                                      Price p1 = new Price(0,100000);
                                      Price p2 = new Price(100000,1000000);
                                      Price p3 = new Price(1000000,2000000);
+                                     Price p4 = new Price(2000000,5000000);
                                      List<Price> listPrice = new ArrayList<>();
                                      listPrice.add(p1);
                                      listPrice.add(p2);
                                      listPrice.add(p3);
+                                     listPrice.add(p4);
+
                                      NumberFormat n = NumberFormat.getInstance();
                                      n.setMinimumIntegerDigits(0);
                                      double giadau = 0, giacuoi = 0;
                                      List<Product> listP = dao.getProductByPrice(giadau, giacuoi);
-
                                  %>
                                     <ul class="sidebar-filter-list">
                                         <%for(Price price :listPrice){%>
-                                            <li ><a href="FilterControl?giadau=<%=price.getGiadau()%>&giacuoi=<%=price.getGiacuoi()%>">TỪ <%=n.format(price.getGiadau())%> ĐẾN <%=n.format(price.getGiacuoi())%></a></li>
+                                            <li ><a href="FilterControl?giadau=<%=price.getGiadau()%>&giacuoi=<%=price.getGiacuoi()%>" style="font-size: 14px;"><%=n.format(price.getGiadau())%> VND - <%=n.format(price.getGiacuoi()) %>VND</a></li>
                                         <%}%>
                                     </ul>
 
