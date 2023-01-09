@@ -1,4 +1,7 @@
-<%--
+<%@ page import="dao.DAO" %>
+<%@ page import="entity.Product" %>
+<%@ page import="dao.CartDAO" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: acer
   Date: 31/12/2022
@@ -7,6 +10,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+  DAO dao = new DAO();
+  List<Product> list = CartDAO.getGiohang();
+  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,14 +94,15 @@
                 <i class="fas fa-check-circle"></i>300 trong kho
               </div>
               <!-- Amount and Add to cart -->
-              <form action="#" class="add-to-cart">
+
                 <div class="count-input-block">
-                  <input type="number" class="form-control text-center" value="1">
+                  <input type="text" class="form-control text-center" name="f" value="1">
                 </div>
-                <div class="btn-block">
-                  <a href="#" class="btn btn-rounded btn-outlined--primary">Thêm vào giỏ hàng</a>
+                <div class="btn-block grid-btn" style="margin-left: 19%;margin-top: -39px;margin-bottom: 5%;">
+
+                  <a href="cart?id=${detail.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-rounded btn-outlined--primary" style="width: 164px;height: 40px;">Thêm vào giỏ</a>
                 </div>
-              </form>
+
               <!-- Wishlist  -->
               <div class="btn-options">
                 <a href="wishlist.html"><i class="ion-ios-heart-outline"></i>Thêm vào danh sách mong muốn</a>
@@ -258,7 +266,7 @@
                         <span>${p.price} VND</span>
                       </div>
                       <div class="btn-block">
-                        <a href="cart.html" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
+                        <a href="cart?id=${p.id}&cartID=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded">Thêm vào giỏ</a>
                       </div>
                     </div>
                   </div>
