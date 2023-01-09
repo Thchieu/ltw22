@@ -663,4 +663,100 @@ public class DAO {
         }
         return false;
     }
+     public List<Product> getAllProductAToZ(){
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT *\n" +
+                "from sanpham\n" +
+                "ORDER BY tensp ASC";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDouble(5),
+                        rs.getDouble(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    public List<Product> getAllProductZToA(){
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT *\n" +
+                "from sanpham\n" +
+                "ORDER BY tensp DESC ";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDouble(5),
+                        rs.getDouble(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    public List<Product> getAllProductMinToMax(){
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT *\n" +
+                "from sanpham\n" +
+                "ORDER BY giagoc ASC  ";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDouble(5),
+                        rs.getDouble(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    public List<Product> getAllProductMaxToMin(){
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT *\n" +
+                "from sanpham\n" +
+                "ORDER BY giagoc DESC  ";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDouble(5),
+                        rs.getDouble(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
 }
