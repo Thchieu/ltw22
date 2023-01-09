@@ -87,8 +87,8 @@
 															<input type="submit" class="btn-black" name="apply_coupon" value="Áp dụng mã">
 														</div>
 													</div>
-													<div class="update-block text-end">
-														<a href="list-product"><input type="submit" class="btn-black" name="Cập nhật giỏ" value="Tiep tuc mua"></a>
+													<div class="cart-summary-button">
+														<a href="list-product" class="checkout-btn c-btn" style="background: black;color: white;width: 160px;height: 37px;font-size: 20px;"> Tiếp tục mua</a>
 
 													</div>
 												</td>
