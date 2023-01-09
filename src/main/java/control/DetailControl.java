@@ -20,11 +20,13 @@ public class DetailControl extends HttpServlet {
         List<String> images = dao.listImage(id);
         List<Category> listC = dao.getCategoryByPID(p.getCateID());
         List<Product> listP = dao.getProductByCID(p.getCateID());
+        String mota = dao.getMota(id);
 
         request.setAttribute("detail", p);
         request.setAttribute("listI", images);
         request.setAttribute("listCate", listC);
         request.setAttribute("listP", listP);
+        request.setAttribute("mota",mota);
         request.getRequestDispatcher("detail.jsp").forward(request, response);
     }
 

@@ -22,12 +22,18 @@
 <div class="site-wrapper">
   <jsp:include page="header/header.jsp"></jsp:include>
   <nav aria-label="breadcrumb" class="breadcrumb-wrapper">
-    <div class="container">
-    </div>
+    <nav aria-label="breadcrumb" class="breadcrumb-wrapper">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="home">Trang chủ</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Đổi mật khẩu</li>
+        </ol>
+      </div>
+    </nav>
   </nav>
   <div class="container">
     <header class="entry-header">
-      <h1 class="entry-title">Đổi mật khẩu</h1>
+      <h1 class="entry-title"></h1>
     </header>
     <div class="row">
       <form action="changepass" method="post">
@@ -37,7 +43,7 @@
         <div class="alert alert-danger ${mess == null ? "sr-only":""}" role="alert">
           Mật khẩu cũ sai
         </div>
-        <h4 class="login-title">Đổi mật khẩu</h4>
+        <h4 class="login-title" style="text-align: center">Đổi mật khẩu</h4>
         <div class="login-form">
           <div class="row"></div>
           <input type="hidden" name="username" value="${sessionScope.user.username}">
@@ -53,7 +59,7 @@
               <label>Nhập Lại Mật khẩu*</label>
               <input class="mb-0" type="password" name="re-newpass">
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12" style="text-align: center">
               <button class="btn btn-black" type="submit">Đổi mật khẩu</button>
             </div>
           </div>

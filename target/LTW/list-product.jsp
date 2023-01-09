@@ -26,7 +26,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="home">Trang chủ </a></li>
-                <li class="breadcrumb-item active" aria-current="page">Cửa hàng</li>
+                <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
             </ol>
         </div>
     </nav>
@@ -58,15 +58,12 @@
                                                     Giá (Thấp &gt; Cao)</option>
                                                 <option value="">
                                                     Giá (Cao &gt; Thấp)</option>
-                                                <option value="">
-                                                    Đánh giá (Cao nhất)</option>
-                                                <option value="">
-                                                    Đánh giá (Thấp nhất)</option>
+
                                             </select>
                                         </div>
                                         <div class="col-md-5 col-xl-4 col-sm-6 text-sm-end mt-sm-0 mt-3">
                                             <span>
-                                                Hiển thị 1–20 trong 52 kết quả
+
                                             </span>
                                         </div>
                                     </div>
@@ -165,7 +162,11 @@
                             <div class="col-lg-4 col-sm-6">
                                 <div class="pm-product">
                                     <a href="detail?pID=${p.id}" class="image">
-                                        <img src="${p.image}" alt="">
+                                        <img src="${p.image}" alt="" style="  display: block;
+                                                                              max-width:230px;
+                                                                              max-height:180px;
+                                                                              width: auto;
+                                                                              height: auto;">
                                     </a>
                                     <div class="hover-conents">
                                         <ul class="product-btns">
@@ -248,7 +249,7 @@
                             <h2 class="sidebar-title">lỌC THEO GIÁ</h2>
                             <a href="product-details.html" class="sidebar-product pm-product product-type-list">
                                 <div class="image"  >
-                                    <img src="image/product/home-2/product-8.png" alt="">
+                                    <img src="image/product/home-2/product-8.png" alt="" >
                                 </div>
                                 <div class="content">
                                     <h3>Alkin Fungikur</h3>
@@ -267,7 +268,11 @@
                             </a>
                             <a href="product-details.html" class="sidebar-product pm-product product-type-list">
                                 <div class="image" >
-                                    <img src="image/product/home-2/product-9.png" alt="">
+                                    <img src="image/product/home-2/product-9.png" alt="" style="display: block;
+                                         max-width:230px;
+                                         max-height:140px;
+                                         width: auto;
+                                         height: auto;">
                                 </div>
 
                                 <div class="content">

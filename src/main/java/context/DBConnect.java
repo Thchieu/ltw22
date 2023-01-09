@@ -7,7 +7,7 @@ import java.sql.*;
 public class DBConnect {
 
     private final String serverName = "localhost";
-    private final String dbName = "data";
+    private final String dbName = "petmark";
     private final String portNumber = "3306";
     private final String instance="";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
     private final String userID = "root";

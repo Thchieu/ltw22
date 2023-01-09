@@ -331,7 +331,7 @@ public class DAO {
     }
 
     public List<String> listImage(String pID){
-        String query = "select anhchitiet from chitietsanpham where id_sanpham = ?";
+        String query = "select anhchitiet from chitietsanpham where id_sp = ?";
         List<String> image = new ArrayList<>();
         String listImage = "";
         try {
@@ -590,14 +590,57 @@ public class DAO {
         } catch (Exception e){
         }
     }
+    public List<Product> getProductByPrice(double giadau, double giacuoi) {
+        List<Product> list = new ArrayList<>();
+        String query = "select * from sanpham where giagoc between ? and ?";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setDouble(1,giadau);
+            ps.setDouble(2, giacuoi);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDouble(5),
+                        rs.getDouble(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public String getMota(String id){
+        String res = "";
+        String query = "select motachitiet from chitietsanpham where id_sp = ?";
+        try {
+            conn = new DBConnect().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1,id);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                res= rs.getString(1);
+            }
+        }catch (Exception e){
+
+        }
+        return res;
+    }
 
     public static void main(String[] args) {
+//        DAO dao = new DAO();
+//        List<User> list = dao.getAllUser();
+//        for(User u : list){
+//            System.out.println(u);
         DAO dao = new DAO();
-        List<User> list = dao.getAllUser();
-        for(User u : list){
-            System.out.println(u);
+        System.out.println(dao.getMota("2"));
         }
 
-    }
+
 
 }

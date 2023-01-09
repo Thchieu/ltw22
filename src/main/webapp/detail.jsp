@@ -41,17 +41,17 @@
               <img id="zoom_03" src="${detail.image}" data-zoom-image="${detail.image}" alt=""/>
               <!-- Product Gallery with Slick Slider -->
               <div id="product-view-gallery" class="elevate-gallery">
-                <!-- Slick Single -->
-                <a href="#" class="gallary-item" data-image="${detail.image}"
-                   data-zoom-image="${detail.image}">
-                  <img src="${detail.image}" alt=""/>
-                </a>
-                <c:forEach items="${listI}" var="i">
-                <a href="#" class="gallary-item" data-image="${i}"
-                   data-zoom-image="${i}">
-                  <img src="${i}" alt=""/>
-                </a>
-                </c:forEach>
+<%--                <!-- Slick Single -->--%>
+<%--                <a href="#" class="gallary-item" data-image="${detail.image}"--%>
+<%--                   data-zoom-image="${detail.image}">--%>
+<%--                  <img src="${detail.image}" alt=""/>--%>
+<%--                </a>--%>
+<%--                <c:forEach items="${listI}" var="i">--%>
+<%--                <a href="#" class="gallary-item" data-image="${i}"--%>
+<%--                   data-zoom-image="${i}">--%>
+<%--                  <img src="${i}" alt=""/>--%>
+<%--                </a>--%>
+<%--                </c:forEach>--%>
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
               <article>
                 <h2 class="d-none sr-only"></h2>
                 <p>
-                  ${detail.des}
+                  ${mota}
                 </p>
               </article>
             </div>
@@ -248,11 +248,16 @@
                   <div class="pm-product">
                     <div class="image">
                       <a href="detail?pID=${p.id}"><img
-                              src="${p.image}" alt=""></a>
-                      <span class="onsale-badge">Sale!</span>
+                              src="${p.image}" alt=""
+                      style=" max-width: 230px;
+    max-height: 145px;
+    height: 100%;
+    display: block;
+    width: 100%;"></a>
+
                     </div>
                     <div class="content">
-                      <h3> <a href="detail?pID=${p.id}">${p.image}</a></h3>
+                      <h3> <a href="detail?pID=${p.id}">${p.name}</a></h3>
                       <div class="price text-orange">
                         <span class="old"></span>
                         <span>${p.price} VND</span>

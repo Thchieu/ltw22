@@ -6,7 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ltw22-dat" />
         <module name="LTW" />
+        <module name="ltw22" />
       </profile>
     </annotationProcessing>
   </component>
