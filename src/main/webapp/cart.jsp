@@ -137,7 +137,7 @@
 
                                                     </div>
                                                     <div class="btn-block">
-														<a href="cart-cart?&id=<%=p.getId()%>&cart_id=<%=System.currentTimeMillis()%>" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
+														<a href="cart-cart?&id=<%=p.getId()%>" class="btn btn-outlined btn-rounded btn-mid">Thêm vào giỏ</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,7 +150,6 @@
 							<div class="cart-summary">
 								<div class="cart-summary-wrap">
 									<h4><span>Tóm tắt</span></h4>
-									<p>Mã hóa đơn <span class="text-primary"><%=System.currentTimeMillis()%> </span></p>
 									<p>Tổng phụ <span class="text-primary"><%=total%> VND</span></p>
 									<p>Phí vận chuyển <span class="text-primary"><% int total1=0;if( total >0){total1 =35000;}else {total1=0;}%><%=total1%></span></p>
 									<h2>Tổng tiền <span class="text-primary"><%=total + total1%> VND</span></h2>
